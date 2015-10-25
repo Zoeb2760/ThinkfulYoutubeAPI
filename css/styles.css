@@ -1,0 +1,30 @@
+body {
+	background-color: blue;
+	overflow: scroll;
+}
+
+#top {
+
+	margin-top: 7em
+}
+
+h1, h2 {
+
+	text-align: center;
+}
+
+form {
+	text-align: center;
+
+}
+
+#query {
+	font-size: 110%;
+}
+
+#mybutton {
+	color: white;
+    border-radius: 4px;
+    background: rgb(28, 184, 65);
+    font-size: 110%
+}
