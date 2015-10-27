@@ -5,10 +5,12 @@ $(document).ready(function() {
 $('#search-Term').submit(function(event) {
 
 
-
+//document.forms['search-Term'].reset()
+   
     event.preventDefault();
     var searchTerm = $('#query').val();
     getRequest(searchTerm);
+    //$('#query').remove();
 
 
 
@@ -18,8 +20,8 @@ $('#search-Term').submit(function(event) {
             part: 'snippet',
             
 
-            s: searchTerm,
-            //q: 'dogs',
+            //s: searchTerm,
+            q: searchTerm,
             maxResults: 10,
             key: 'AIzaSyBKACb8CHAV4Lr1v4uq65MCdmm-HglaapI'
         };
@@ -28,7 +30,7 @@ $('#search-Term').submit(function(event) {
 
 
         $.getJSON(url, params, function(data) {
-            //var myData= data.items;
+            
             var myData= data.items;
             
             console.log("myData=" + myData);
@@ -37,6 +39,13 @@ $('#search-Term').submit(function(event) {
             
         });
     }
+
+
+   /* $('ul').on('click', 'li', function() {
+       $(this).remove();
+    }); */
+
+
     
 function showResults(results) {
     
@@ -51,8 +60,12 @@ function showResults(results) {
         
     });
     $('#search-results').html(htmlresults);
+     //searchTerm.empty="";
+     //$('#query').val(''); to run again/reset
 }
 
+
+//document.location.reload(true);
 
 
   
@@ -62,5 +75,30 @@ function showResults(results) {
 
 
 })
+
+$("<img/>").mouseenter(function(){
+        $(this).addClass('hover-state');
+    }).mouseleave(function(){
+        $(this).removeClass('hover-state');
+    });
+
+//
+
+    $("<img/>.click-to-play-video").click(function(){
+        $('#head').css({"background-color":"black"});
+
+        player = new YT.Player('player', {
+            width : '320',
+            height : '180',
+            videoId : 'qlEUrEVqDbo',
+            playerVars: { 'autoplay': 1 },
+            events : {
+                'onReady' : onPlayerReady,
+                'onStateChange' : onPlayerStateChange
+            }
+        });
+    })
+
+
 
 });
