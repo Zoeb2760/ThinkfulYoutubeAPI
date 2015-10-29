@@ -15,7 +15,9 @@ h1, h2 {
 
 form {
 	text-align: center;
-
+img {
+	align:middle;
+}
 }
 
 #query {

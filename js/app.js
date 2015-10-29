@@ -6,6 +6,7 @@ $('#search-Term').submit(function(event) {
     event.preventDefault();
     var searchTerm = $('#query').val();
     getRequest(searchTerm);
+})
 
 
 
@@ -15,8 +16,8 @@ $('#search-Term').submit(function(event) {
             part: 'snippet',
             //key: 'AIzaSyBKACb8CHAV4Lr1v4uq65MCdmm-HglaapI'
 
-            s: searchTerm,
-            //q: 'dogs',
+            //s: searchTerm,
+            q: searchTerm,
             maxResults: 10,
             key: 'AIzaSyBKACb8CHAV4Lr1v4uq65MCdmm-HglaapI'
         }
@@ -25,13 +26,14 @@ $('#search-Term').submit(function(event) {
 
 
         $.getJSON(url, params, function(data) {
-            showResults(data.Search);
+            //showResults(data.Search);
+             console.log(data);
 
             })
         }
+   
     
-    
-function showResults(results) {
+  /*function showResults(results) {
     var htmlresults = "";
     $.each(results, function(index, value) {
         htmlresults += '<p>' + value.Title + '</p>';
@@ -40,9 +42,9 @@ function showResults(results) {
     $('#search-results').html(htmlresults);
 
 
-}
+} */
 
-})
+
 });
     /*function getRequest(seachTerm) {
         $.getJSON("http://www.omdbapi.com/?s=" + searchTerm + "&r=json", function(data) {
