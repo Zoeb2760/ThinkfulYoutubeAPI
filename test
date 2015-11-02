@@ -1,0 +1,70 @@
+<iframe width="420" height="315"
+src="http://www.youtube.com/embed/watch?v=" + iD + "autoplay = 0" >
+</iframe>
+
+
+
+////onYouTubePlayerAPIReady ();
+     
+//https://www.youtube.com/watch?v=vZHNMtqJG1w
+
+//document.location.reload(true);
+
+
+  
+   
+
+
+
+
+
+
+/*$("<img/>").mouseenter(function(){
+        $(this).addClass('hover-state');
+    }).mouseleave(function(){
+        $(this).removeClass('hover-state');
+    //}); */
+
+//
+
+    /*$("<img/>.click-to-play-video").click(function(){
+        $('#head').css({"background-color":"black"});
+
+        player = new YT.Player('player', {
+            width : '320',
+            height : '180',
+            videoId : 'qlEUrEVqDbo',
+            playerVars: { 'autoplay': 1 },
+            events : {
+                'onReady' : onPlayerReady,
+                'onStateChange' : onPlayerStateChange
+            }
+        });
+    })*/
+/*var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/player_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+
+
+
+var player;
+function onYouTubePlayerAPIReady() {
+  player = new YT.Player('<iframe>', {
+    height: '258',
+    width: '422',
+    videoId: iD
+  }); */
+
+
+  //document.forms['search-Term'].reset()
+
+
+  //$('#query').remove();
+
+
+  htmlresults += "<p>" + "<img src = " + snippeturl + ">" + value.snippet.title + 
+        "<a href='http://www.youtube.com/emb/watch?v=' + iD + target='_blank' > '<img src = ' + snippeturl + '>' + </a>" +
+
+        "</p>" 

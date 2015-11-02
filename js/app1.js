@@ -5,12 +5,12 @@ $(document).ready(function() {
 $('#search-Term').submit(function(event) {
 
 
-//document.forms['search-Term'].reset()
+
    
     event.preventDefault();
     var searchTerm = $('#query').val();
     getRequest(searchTerm);
-    //$('#query').remove();
+    
 })
 
 
@@ -36,9 +36,11 @@ $('#search-Term').submit(function(event) {
         $.getJSON(url, params, function(data) {
             
             var myData= data.items;
+            //var iD= value.id.videoId;
             
             console.log("myData=" + myData);
             showResults(myData);
+           // showResults(iD);
             
             
         });
@@ -67,16 +69,44 @@ function showResults(results) {
 
         var snippeturl= value.snippet.thumbnails.medium.url;
         var iD= value.id.videoId;
-        //console.log("video id =" + iD);
+        var anchor = 'http://www.youtube.com/watch?v=' + iD
+
+        console.log("video id =" + iD);
         console.log("snippeturl= "+ value.snippet.thumbnails.medium.url);
-        htmlresults += "<p>" + value.snippet.title +  "<img src = " + snippeturl + ">" + "</p>" 
-        //"<a href=http://www.youtube.com/embed/watch?v=" + iD + "autoplay = 0 >" "<img src" = + snippeturl + "/>" + "</a>" 
+        console.log("anchor= " + anchor);
+        htmlresults += "<p>" + "<a href=http://www.youtube.com/watch?v=" + iD + target=_blank + ">" + '<img src = ' + snippeturl  + '>' + value.snippet.title + "</a>" + "</p>"
+        //"</a>" +
+        
+
+       $('#search-results').html(htmlresults);
+        
+    } )
+}
+
+        //'<img src = ' + snippeturl + '>' + </a>" +
+
+        //"</p>" 
+        //"<a href='http://www.youtube.com/emb/watch?v=' + iD + target='_blank' > '<img src = ' + snippeturl + '>' + </a>"
+        // + "</a>"
+
+       //<a href="samesite.htm"><img src="image.gif"></a>
+       // value.snippet.title 
+        //<a href="http://www.w3schools.com/" target="_blank">Visit W3Schools!</a>
+        // htmlresults += "<p>" + value.snippet.title +  "<img src = " + snippeturl + ">" + "</p>" 
+        //"<a href=http://www.youtube.com/watch?v=" + iD + "autoplay = 0 >" "<img src" = + snippeturl + "/>" + "</a>" 
         // "</p>"
         //getVideo(); 
+
+
+        //autoplay = "0"
         /* + "<iframe 
 src="http:%2F%2Fwww.youtube.com/embed/watch?v=" + iD + "autoplay = 0 >
 </iframe> + </p>";*/
-        console.log( value.snippet.thumbnails);
+        /*console.log(value.snippet.thumbnails);
+        $("#search-results").click(function() {
+        alert('Clicked');
+        var iD= value.id.videoId;
+        console.log("video id =" + iD);
         
     //});
 
@@ -87,86 +117,45 @@ src="http:%2F%2Fwww.youtube.com/embed/watch?v=" + iD + "autoplay = 0 >
      //$('#query').val(''); to run again/reset
 
      //
- })
+
+} 
 
     //function playVideo () {
-        $("<img>").click(function()  {
-            alert("clicked")
-        })
+        //$("<img>").click(function()  {
+           // alert("clicked")
+        //})
+//"<a href='http://www.youtube.com/watch?v=' + iD + target='_blank'+ ">"
 
-}
+//<p><a href="images/parrot.jpg" target="picdisplay"><img src="images/hyperlink-demo.gif" alt="button demo" /></a></p>
 
-           // {document.createElement('iframe');
-            //ifrm.setAttribute('src', 'http://www.youtube.com/embed/watch?v=' + iD + 'autoplay = 0');
+
+
+
             
+             /* $('#gif').click(function(){
+       alert('Clicked');*/
+        //$('snippeturl').click*/
+       /*$("#search-results").click(function() {
+        alert('Clicked');
+        var iD= value.id.videoId;
+        console.log("video id =" + iD);
+        //"<a href='http://www.youtube.com/emb/watch?v=' + iD + 
+        //target='_blank' >" Click to PLay*/
+       // + 
+        //'<img src = ' + snippeturl  + '>' + value.snippet.title + */
+        //"</a>"
+        // <h2 id="tips">Useful Tips Section</h2>
 
+        //"<img src = 'http://www.youtube.com/embed/watch?v=' + iD + 'autoplay = 0' + '>' ";
+  
 
-
+         //   "<img src = 'http://www.youtube.com/embed/watch?v=' + iD + 'autoplay = 0' + '>' ";
+            //<img src="smiley.gif" alt="Smiley face" height="42" width="42">
 
             //htmlresults += snippeturl;
              //$('#gif').click(function(){
-       /*alert('Clicked');
-        //$('snippeturl').click
-        $("<img>").click(function() 
-            img src = 'http://www.youtube.com/embed/watch?v=' + iD + 'autoplay = 0');
-            htmlresults += snippeturl;
-             $('#gif').click(function(){
-       alert('Clicked');
-    })
-};
-//onYouTubePlayerAPIReady ();
-     
-
-
-//document.location.reload(true);
-
-
-  
-   
-
-
-
-
-
-
-/*$("<img/>").mouseenter(function(){
-        $(this).addClass('hover-state');
-    }).mouseleave(function(){
-        $(this).removeClass('hover-state');
-    //}); */
-
-//
-
-    /*$("<img/>.click-to-play-video").click(function(){
-        $('#head').css({"background-color":"black"});
-
-        player = new YT.Player('player', {
-            width : '320',
-            height : '180',
-            videoId : 'qlEUrEVqDbo',
-            playerVars: { 'autoplay': 1 },
-            events : {
-                'onReady' : onPlayerReady,
-                'onStateChange' : onPlayerStateChange
-            }
-        });
-    })*/
-/*var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/player_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-
-
-
-var player;
-function onYouTubePlayerAPIReady() {
-  player = new YT.Player('<iframe>', {
-    height: '258',
-    width: '422',
-    videoId: iD
-  }); */
+       //alert('Clicked');
 //}
-
+//})
 
 });
